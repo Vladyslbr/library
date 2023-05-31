@@ -5,6 +5,7 @@ from django.utils import timezone
 
 class Document(models.Model):
     name = models.CharField(max_length=200)
+    notes = models.TextField(null=True)
     upload_date = models.DateTimeField(auto_now=True)
     document = models.FileField(upload_to='documents/')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='documents', null=True)

@@ -2,13 +2,16 @@
 
 {% block content %}
 <div class="container">
-  <p>Uploaded files:</p>
+  <p>Uploaded files:
     {% for obj in documents %}
       <li>
-        <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
-        <small>(Upload date: {{ obj.upload_date }})</small>
-        <a class="btn btn-outline-info" href="{{obj.document.url}}" download> Download File</a>
-        <a class="btn btn-outline-danger" href="{% url 'delete_document' obj.id %}">Delete File</a>
+        <a>{{ obj.name }}</a>
+        <a class="btn btn-outline-info btn-sm" href="{{ obj.document.url }}" download> Download File</a>
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_document' obj.id %}">Delete File</a>
+        | Uploaded on {{ obj.upload_date }} |
+        {% if obj.notes %}
+          <small>Notes: {{ obj.notes }}</small>
+        {% endif %} </p>
       </li>
     {% endfor %}
 </div>
