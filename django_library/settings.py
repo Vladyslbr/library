@@ -28,7 +28,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-3akx+--30khp(b
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web-production-3640.up.railway.app', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://web-production-3640.up.railway.app']
 
 
 # Application definition
@@ -154,6 +156,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
