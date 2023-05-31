@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'users.apps.UsersConfig',
     'library.apps.LibraryConfig',
 ]
@@ -148,4 +149,4 @@ STATIC_URL = '/static/'
 
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
