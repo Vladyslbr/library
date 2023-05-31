@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container">
+  <p>Uploaded files:</p>
+    {% for obj in documents %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+        <small>(Upload date: {{ obj.upload_date }})</small>
+        <a class="btn btn-outline-info" href="{{obj.document.url}}" download> Download File</a>
+        <a class="btn btn-outline-danger" href="{% url 'delete_document' obj.id %}">Delete File</a>
+      </li>
+    {% endfor %}
+</div>
+{% endblock content %}
